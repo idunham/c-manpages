@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH "unsigned int" Type "(Language/lexical elements/identifiers/types)" Type
+.TH "unsigned int" 3T 2015 "(Lexical elements/identifiers/types)" Type
 .PC
 .PP
 An

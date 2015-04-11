@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH "typedef" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
+.TH "typedef" 3K 2015 "(Declarations/storage-class specifiers)" "C keyword"
 .XR "type, synonym"
 .XR "synonym for another type"
 .PC "Synonym for another type"

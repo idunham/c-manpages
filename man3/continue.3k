@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH continue "C keyword" "(Language/statements/jump statements)" "C keyword"
+.TH continue 3K 2015 "(Statements/jump statements)" "C keyword"
 .XR "loop, force next iteration"
 .XR "force next iteration of loop"
 .PC "Force next iteration of a loop"

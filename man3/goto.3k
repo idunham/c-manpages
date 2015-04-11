@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH goto "C keyword" "(Language/statements/jump statements)" "C keyword"
+.TH goto 3K 2015 "(Statements/jump statements)" "C keyword"
 .XR "jump, within a function"
 .XR "function, jump within"
 .XR "unconditionally jump within function"

@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH char "C keyword" "(Language/lexical elements/identifiers/types)" "C keyword"
+.TH char 3K 2015 "(Lexical elements/identifiers/types)" "C keyword"
 .PC
 .PP
 The data type

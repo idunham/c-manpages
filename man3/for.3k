@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH for "C keyword" "(Language/statements/iteration statements)" "C keyword"
+.TH for 3K 2015 "(Statements/iteration statements)" "C keyword"
 .XR "loop construct"
 .PC "Loop construct"
 \fBfor(\fIinitialization\^\fB; \fIcondition\^\fB; \fImodification\^\fB) \fIstatement\fR

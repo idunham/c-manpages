@@ -1,7 +1,7 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
 .ds AS ANSI Standard
 .ds KR The C Programming Language, Kernighan and Ritchie
-.TH else "C keyword" "(Language/statements/selection statements)" "C keyword"
+.TH else 3K 2015 "(Statements/selection statements)" "C keyword"
 .XR "conditionally execute statement"
 .XR "statement, conditionally execute"
 .PC "Conditionally execute a statement"
