@@ -1,4 +1,6 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.ds AS ANSI Standard
+.ds KR The C Programming Language, Kernighan and Ritchie
 .TH if "C keyword" "(Language/statements/selection statements)" "C keyword"
 .XR "conditionally execute expression"
 .XR "expression, conditionally execute"

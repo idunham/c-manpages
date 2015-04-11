@@ -1,4 +1,6 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.ds AS ANSI Standard
+.ds KR The C Programming Language, Kernighan and Ritchie
 .TH "const" "C keyword" "(Language/declarations/type qualifier)" "C keyword"
 .XR "type qualifier, not modifiable"
 .XR "not modifiable, type qualifier"

@@ -1,4 +1,6 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.ds AS ANSI Standard
+.ds KR The C Programming Language, Kernighan and Ritchie
 .TH "extern" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
 .XR "external linkage"
 .XR "linkage, external"

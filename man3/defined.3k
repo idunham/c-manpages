@@ -1,4 +1,6 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.ds AS ANSI Standard
+.ds KR The C Programming Language, Kernighan and Ritchie
 .TH "defined" "C keyword" "(Language/preprocessing/macro replacement)" "C keyword"
 .PC "Check if identifier is defined"
 \fBdefined( \fIidentifier \fB)\fR

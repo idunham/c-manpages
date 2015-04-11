@@ -1,4 +1,6 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.ds AS ANSI Standard
+.ds KR The C Programming Language, Kernighan and Ritchie
 .TH break "C keyword" "(Language/statements/jump statements)" "C keyword"
 .XR "loop, exit unconditionally"
 .XR "switch, exit unconditionally"

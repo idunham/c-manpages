@@ -1,4 +1,6 @@
 .\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.ds AS ANSI Standard
+.ds KR The C Programming Language, Kernighan and Ritchie
 .TH case "C keyword" "(Language/statements/labelled statements)" "C keyword"
 .XR "switch, mark entry in table"
 .XR "mark entry in switch table"
