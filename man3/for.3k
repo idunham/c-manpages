@@ -17,8 +17,10 @@ is the statement that modifies
 .I variable
 to control the number of iterations of the loop.
 For example,
-.DM
-	for (i=0; i<10; i++)
+.PP
+.nf
+	for\ (i=0;\ i<10;\ i++)
+.fi
 .DE
 .PP
 first sets the variable
@@ -35,7 +37,10 @@ through
 .BR i==9 ).
 The statement
 .DM
+.PP
+.nf
 	for(;;)
+.fi
 .DE
 .PP
 will loop until its execution is interrupted by a
@@ -49,11 +54,14 @@ The
 .B for
 statement is equivalent to:
 .DM
+.PP
+.nf
 	\fIinitialization\^\fP;
 	while(\fIcondition\^\fP) {
 		\fIstatement\fP
 		\fImodification\^\fP;
 	}
+.fi
 .DE
 .SH Example
 For an example of this statement, see
