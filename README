@@ -1,5 +1,6 @@
 C Manpages
 
+Overview:
 This contains a set of manpages for C keywords, types, and useful topics,
 originally extracted from the Coherent documentation[1].
 Since Coherent has been released under a license similar to the 3-clause
@@ -12,6 +13,17 @@ a variable inside a for statement:
 is not permitted by C89, but only by newer dialects.
 Similarly, the "long long" type was not yet available.
 But despite that, you may find this to be helpful.
+
+While the original documentation covered all of C89, this only covers
+keywords and overviews, which cannot be found in the POSIX manpages.
+
+Some changes have been made to make the documentation work nicely with
+groff/linux man; I have attempted to not use groff-specific magic.
+These changes may be used as if they fell under the original terms found
+in the LICENSE file.
+
+Maintainer:
+Isaac Dunham <ibid.ag@gmail.com> 
 
 
 [1] http://www.nesssoftware.com/home/mwc/source.php 
