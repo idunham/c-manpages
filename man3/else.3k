@@ -26,11 +26,14 @@ statement is associated with the first preceding \fBelse\fR-less \fBif\fR
 statement that is within the same block, but not within an enclosed block.
 For example,
 .DM
+.PP
+.nf
 	if(\fIconditional1\^\fP) {
 		if(\fIconditional2\^\fP)
 			\fIstatement1\fP
 	} else
 		\fIstatement2\fP
+.fi
 .DE
 .PP
 the
@@ -43,11 +46,14 @@ not the one that uses
 .IR conditional2 .
 On the other hand, in the code
 .DM
+.PP
+.nf
 	if(\fIconditional1\^\fP)
 		if(\fIconditional2\^\fP)
 			\fIstatement1\fP
 	else
 		\fIstatement2\fP
+.fi
 .DE
 .PP
 which does not use braces, the

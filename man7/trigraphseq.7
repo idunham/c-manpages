@@ -27,6 +27,8 @@ The third character in the sequence indicates which character is being
 represented.
 The following table gives the set of trigraph sequences:
 .DM
+.PP
+.nf
 .ta 1.0iC 2.0iC
 	\fITrigraph	Character\fP
 	\fISequence	Represented\fP
@@ -40,6 +42,7 @@ The following table gives the set of trigraph sequences:
 	??!	|
 	??>	}
 	??-	~
+.fi
 .DE
 .PP
 The characters represented are the ones used in the
@@ -56,12 +59,18 @@ Thus, strings that uses a literal \*(QL??\*(QR will not work the
 same as under a non-ANSI implementation of C.
 For example, the function call
 .DM
+.PP
+.nf
 	printf("Feel lucky, punk??!\en");
+.fi
 .DE
 .PP
 would print:
 .DM
+.PP
+.nf
 	Feel lucky, punk|
+.fi
 .DE
 .PP
 This is a silent change that may break existing code.
@@ -69,7 +78,10 @@ This is a silent change that may break existing code.
 To print a pair of questions marks, use the escape sequence \*(Ql\e?\e?\*(Qr.
 For example:
 .DM
+.PP
+.nf
 	printf("Feel lucky, punk\e?\e?!\en");
+.fi
 .DE
 .SH Cross-references
 .nf

@@ -13,12 +13,16 @@ Its syntax is as follows:
 .I
 	typedef-name:
 		identifier
+.fi
 .DE \}
 .PP
 The new synonym must include all qualifiers and storage-class specifiers.
 For example, the declaration
 .DM
+.PP
+.nf
 	typedef volatile unsigned long int giant;
+.fi
 .DE
 .PP
 states that the type
@@ -27,7 +31,10 @@ is a synonym for
 .BR "volatile unsigned long int" .
 Thus, the declaration
 .DM
+.PP
+.nf
 	giant example();
+.fi
 .DE
 .PP
 declares, in effect, that the function
@@ -44,10 +51,13 @@ behave exactly the same.
 is often used to declare a structure type.
 For example, the structure declaration
 .DM
+.PP
+.nf
 	typedef struct {
 		int member1, member2;
 		long member3;
 	} EXAMPLE;
+.fi
 .DE
 .PP
 declares that
@@ -73,7 +83,10 @@ The Standard does not allow benign redeclarations of
 typedefs.
 For example, if the declaration
 .DM
+.PP
+.nf
 	typedef int SINT;
+.fi
 .DE
 .PP
 were included in a header and the same declaration appeared in a

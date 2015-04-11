@@ -13,17 +13,26 @@ has been defined as
 .if \nX=4 macro.
 The preprocessing directives
 .DM
+.PP
+.nf
 	#if defined(identifier)
+.fi
 .DE
 .PP
 and
 .DM
+.PP
+.nf
 	#if defined identifier
+.fi
 .DE
 .PP
 have exactly the same effect as the directive:
 .DM
+.PP
+.nf
 	#ifdef identifier
+.fi
 .DE
 .PP
 The
@@ -39,7 +48,10 @@ It may not be used in any other context.
 is not a reserved word.
 It can be used in more complex conditional statements, i.e.:
 .DM
+.PP
+.nf
 	#if LEVEL==3 && defined FOO
+.fi
 .DE
 .SH Cross-references
 .nf

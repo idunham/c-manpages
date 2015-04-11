@@ -23,7 +23,10 @@ is initially false.
 .PP
 For example,
 .DM
+.PP
+.nf
 	while (variable < 10)
+.fi
 .DE
 .PP
 introduces a loop whose statements will continue to execute until
@@ -31,7 +34,10 @@ introduces a loop whose statements will continue to execute until
 is equivalent to ten or greater.
 The statement
 .DM
+.PP
+.nf
 	while (1)
+.fi
 .DE
 .PP
 will loop until interrupted by

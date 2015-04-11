@@ -90,10 +90,13 @@ The 32 bits in a
 .B float
 consist of one sign bit, an eight-bit
 exponent, and a 24-bit mantissa, as follows:
-.DM			
+.DM
+.PP
+.nf			
 Sign  Exponent 1    Mantissa
 |s   eeeeeee|e   fffffff|ffffffff|ffffffff|
    Byte 4      Byte 3     Byte 2   Byte 1
+.fi
 .DE
 .PP
 The exponent has a bias of 129.
@@ -114,13 +117,16 @@ The format for
 simply adds another 32 mantissa bits to the end of the
 .B float
 representation, as follows:
-.DM			
+.DM
+.PP
+.nf			
 Sign  Exponent        Mantissa
 |s    eeeeeee|e  fffffff|ffffffff|ffffffff|
    Byte 8      Byte 7     Byte 6   Byte 5
 .sp \n(pDu
 	ffffffff|ffffffff|ffffffff|ffffffff|
 	 Byte 4   Byte 3   Byte 2   Byte 1
+.fi
 .DE
 .SH "IEEE Format"
 .XR "IEEE format"
@@ -158,13 +164,16 @@ An IEEE
 unlike DECVAX format, increases the number of exponent bits.
 It consists of a sign bit, an 11-bit exponent, and a 53-bit mantissa,
 as follows:
-.DM			
+.DM
+.PP
+.nf			
 Sign     Exponent          Mantissa
 |s    eeeeeee|eeee  ffff|ffffffff|ffffffff|
   Byte 8        Byte 7    Byte 6   Byte 5  
 .sp \n(pDu
 	ffffffff|ffffffff|ffffffff|ffffffff|
 	 Byte 4   Byte 3   Byte 2   Byte 1
+.fi
 .DE
 .PP
 The exponent has a bias of 1,023.
@@ -185,9 +194,12 @@ A BCD
 has a sign bit, seven bits of exponent, and six four-bit digits,
 as follows:
 .DM
+.PP
+.nf
 Sign Exponent    Mantissa
  |s    eeeeeee|   dddd  dddd|dddd dddd|dddd dddd|
      Byte 4        Byte 3      Byte 2    Byte 1    
+.fi
 .DE
 .PP
 A BCD
@@ -195,12 +207,15 @@ A BCD
 has a sign bit, 11 bits of exponent, and 13 four-bit digits, as
 follows:
 .DM
+.PP
+.nf
 Sign    Exponent      Mantissa
 |s    eeeeeee|eeee  dddd|dddd dddd|dddd dddd|
     Byte 8      Byte 7     Byte 6    Byte 5  
 .sp \n(pDu
 	dddd dddd|dddd dddd|dddd dddd|dddd dddd|
 	  Byte 4    Byte 3    Byte 2    Byte 1
+.fi
 .DE
 .PP
 Passing the hexadecimal numbers A through F in a digit

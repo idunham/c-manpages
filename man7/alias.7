@@ -26,15 +26,21 @@ a translator is said to make more favorable aliasing assumptions,
 and produce better code.
 For example, consider the following code fragment:
 .DM
+.PP
+.nf
 	fn(int *ip, float *fp)
 	{
 		int i;
 		float f;
+.fi
 .DE
 .DM
+.PP
+.nf
 		ip = &i;	/* line 1 */
 		*fp = f;	/* line 2 */
 	}
+.fi
 .DE
 .PP
 Normally in an assignment to a dereferenced pointer (line 2),
@@ -56,7 +62,10 @@ may have been changed.
 .PP
 Any attempt to trick the translator, such as with a statement of the form
 .DM
+.PP
+.nf
 	*fp = (float) i;
+.fi
 .DE
 .PP
 generates undefined behavior.

@@ -12,9 +12,12 @@ Composite types are constructed in only a few instances.
 One is when an incomplete array type is declared, followed by a later
 declaration that allocates storage for the array:
 .DM
+.PP
+.nf
 	int array[];
 	   . . .
 	int array[] = { 3, 6, 9 };
+.fi
 .DE
 .PP
 Here, the composite type is an array type with three elements.
@@ -22,8 +25,11 @@ Here, the composite type is an array type with three elements.
 Another instance is when an old-style function declarator is followed by a
 prototype-style function declaration:
 .DM
+.PP
+.nf
 	long newfunction();
 	long newfunction(int, long, char *);
+.fi
 .DE
 .PP
 The resulting composite type is the function declaration plus the list of

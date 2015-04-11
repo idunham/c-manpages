@@ -23,7 +23,10 @@ When any complete type is used (i.e., a type whose size is known by
 the translator), the result is the size of that type, in bytes.
 For example,
 .DM
+.PP
+.nf
 	sizeof (long double);
+.fi
 .DE
 .PP
 returns the size of a
@@ -35,9 +38,12 @@ If
 is given the name of an array, it returns the size of the array.
 For example, the code
 .DM
+.PP
+.nf
 	int example[5];
 	   . . . /* example[] is filled with some things */
 	sizeof example[] / sizeof int;
+.fi
 .DE
 .PP
 yields the number of members in
@@ -52,12 +58,15 @@ the objects within the structure, if any.
 This is especially useful when allocating memory for a linked list;
 for example:
 .DM
+.PP
+.nf
 	struct example {
 		int member1;
 		example *member2;
 	};
 	struct example *variable;
 	variable=(struct example *)malloc(sizeof(struct example));
+.fi
 .DE
 .PP
 If

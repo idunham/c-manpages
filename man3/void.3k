@@ -15,7 +15,10 @@ can be used in a function prototype or definition to indicate that a
 function returns no value.
 For example, the declaration
 .DM
+.PP
+.nf
 	void example();
+.fi
 .DE
 .PP
 indicates that the function
@@ -31,7 +34,10 @@ can also be used in a function prototype or function declaration
 to indicate that a function has no arguments.
 For example, the declaration
 .DM
+.PP
+.nf
 	void example(void);
+.fi
 .DE
 .PP
 indicates that the function
@@ -71,10 +77,13 @@ That is, you should not directly access the object to which it points
 by using the indirection operator \*(Ql*\*(Qr.
 In the code
 .DM
+.PP
+.nf
 	void *voidp;
 	   . . .
 	if (*voidp > 0)
 	   . . .
+.fi
 .DE
 .PP
 the behavior of dereferencing the pointer to
@@ -88,10 +97,13 @@ It is correct, however, to cast a pointer to
 to a standard object pointer type and then dereference it.
 For example, the code
 .DM
+.PP
+.nf
 	void *voidp;
 	   . . .
 	if (*(char *)voidp > 0)
 	   . . .
+.fi
 .DE
 .PP
 is permitted.
@@ -132,7 +144,10 @@ types, except that any object pointer may be compared to a
 .BR "void *" .
 Casting object pointers with the expression
 .DM
+.PP
+.nf
 	(void *)
+.fi
 .DE
 .PP
 allows comparisons that would otherwise be illegal.

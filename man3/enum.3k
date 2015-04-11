@@ -19,23 +19,29 @@ indicates
 	enum-specifier:
 		\fLenum \fIidentifier\dopt\u \fL{\fI enumerator-list \fL}\fI
 		\fLenum \fIidentifier
+.fi
 .DE
 .DS
 .I
 	enumerator-list:
 		enumerator
 		enumeratorlist , enumerator
+.fi
 .DE
 .DS
 .I
 	enumerator:
 		enumeration-constant
 		enumeration-constant \fL=\fI constant-expression
+.fi
 .DE \}
 .PP
 For example,
 .DM
+.PP
+.nf
 	enum opinion { yes, no, maybe };
+.fi
 .DE
 .PP
 declares type
@@ -57,9 +63,12 @@ and
 are set, respectively, to zero, one, and two.
 Thus, the following example
 .DM
+.PP
+.nf
 	enum opinion guess;
 	   . . .
 	guess = no;
+.fi
 .DE
 .PP
 sets the value of
@@ -77,7 +86,10 @@ the identifier is assigned the given value
 and subsequent values increase by one from that value.
 For example,
 .DM
+.PP
+.nf
 	enum opinion {yes, no=50, maybe};
+.fi
 .DE
 .PP
 sets the values of the members
@@ -89,7 +101,10 @@ to zero, 50, and 51, respectively.
 More than one enumerator can have the same value.
 For example:
 .DM
+.PP
+.nf
 	enum opinion {yes, no=50, nah=50, nope=50, maybe};
+.fi
 .DE
 .PP
 assigns duplicate values to the members

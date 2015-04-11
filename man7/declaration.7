@@ -15,6 +15,7 @@ indicates
 .I
 	declaration:
 		declaration-specifiers init-declarator-list\dopt\u :
+.fi
 .DE
 .DS
 .I
@@ -22,18 +23,21 @@ indicates
 		storage-class-specifier declaration-specifiers\dopt\u
 		type-specifier declaration-specifiers\dopt\u
 		type-qualifier declaration-specifiers\dopt\u
+.fi
 .DE
 .DS
 .I
 	init-declarator-list:
 		init-declarator
 		init-declarator-list , init-declarator
+.fi
 .DE
 .DS
 .I
 	init-declarator:
 		declarator
 		declarator \fL=\fI initializer
+.fi
 .DE \}
 .PP
 If a declaration also causes storage to be allocated for the object declared,
@@ -45,7 +49,10 @@ Each declarator has the type given at the beginning of the list,
 although a declarator may also have additional type information.
 For example,
 .DM
+.PP
+.nf
 	int example1, *example2;
+.fi
 .DE
 .PP
 declares two variables:

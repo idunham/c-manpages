@@ -22,10 +22,13 @@ always works in tandem with
 .BR while .
 For example
 .DM
+.PP
+.nf
 	do {
 		puts("Next entry? ");
 		fflush(stdout);
 	} while(getchar() != EOF);
+.fi
 .DE
 .PP
 prints a prompt on the screen and waits for the user to reply.

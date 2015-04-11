@@ -46,6 +46,8 @@ also points to the beginning of the \fBstruct\fR's first member.
 .PP
 The following is an example of a structure:
 .DM
+.PP
+.nf
 struct person {
 	char name[30];
 	char st_address[25];
@@ -54,6 +56,7 @@ struct person {
 	char zip[9];
 	char id_number[9];
 } MYSELF;
+.fi
 .DE
 .PP
 This example defines a structure type

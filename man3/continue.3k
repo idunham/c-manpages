@@ -19,16 +19,21 @@ forces a loop to iterate by jumping to the end of the loop, which is
 where iteration evaluation is made.
 For example, the code
 .DM
+.PP
+.nf
 	while(\fIstatement\fP) {
 		   . . .
 		if (\fIstatement\fP)
 			continue;
 		   . . .
 	}
+.fi
 .DE
 .PP
 is equivalent to:
 .DM
+.PP
+.nf
 	while(\fIstatement\fP) {
 		   . . .
 		if (\fIstatement\fP)
@@ -36,6 +41,7 @@ is equivalent to:
 		   . . .
 		end: ;
 	}
+.fi
 .DE
 .SH Example
 For an example of this statement, see

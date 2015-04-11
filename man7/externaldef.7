@@ -15,16 +15,22 @@ external linkage.
 .if \nX=4 \{\
 The syntax of an external definition is as follows:
 .DM
+.PP
+.nf
 .I
 	translation-unit:
 		external-declaration
 		translation-unit external-declaration
+.fi
 .DE
 .DM
+.PP
+.nf
 .I
 	external-declaration:
 		function-definition
 		declaration
+.fi
 .DE
 .PP \}
 If an identifier has external linkage and is used in an expression

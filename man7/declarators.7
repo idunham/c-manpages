@@ -15,6 +15,7 @@ indicates
 .I
 	declarator:
 		pointer\dopt\u direct-declarator
+.fi
 .DE
 .DS
 .I
@@ -24,57 +25,73 @@ indicates
 		direct-declarator \fL[\fI constant-expression \dopt\u \fL]\fI
 		direct-declarator \fL(\fI parameter-type-list \fL)\fI
 		direct-declarator \fL(\fI identifier-list\dopt\u \fL)\fI
+.fi
 .DE
 .DS
 .I
 	pointer:
 		\fL*\fI type-qualifier-list\dopt\u
 		\fL*\fI type-qualifier-list\dopt\u pointer
+.fi
 .DE
 .DS
 .I
 	type-qualifier-list:
 		type-qualifier
 		type-qualifier-list type-qualifier
+.fi
 .DE
 .DS
 .I
 	parameter-type-list:
 		parameter-list
 		parameter list ,  . . .
+.fi
 .DE
 .DS
 .I
 	parameter-list:
 		parameter-declaration
 		parameter-list , parameter-declaration
+.fi
 .DE
 .DS
 .I
 	parameter-declaration:
 		declaration-specifiers declarator
 		declaration-specifiers abstract-declarator\dopt\u
+.fi
 .DE
 .DS
 .I
 	identifier-list
 		identifier
 		identifier-list , identifier
+.fi
 .DE \}
 .PP	
 For example,
 .DM
+.PP
+.nf
 	int arrayname[10];
+.fi
 .DE
 .PP
 declares an array.
 .DM
+.PP
+.nf
 	int functionname( int arg1, int arg2, char *arg3 );
+.fi
 .DE
 .PP
 declares a function.
 .DM
+.PP
+.nf
 	int *pointername;
+.fi
 .DE
 .PP
 declares a pointer.

@@ -33,16 +33,22 @@ is actually returning, the value passed by
 will be altered to conform to what the function was declared to return.
 For example,
 .DM
+.PP
+.nf
 	main(void)
 	{
 		printf("%s\en", example());
 	}
+.fi
 .DE
 .DM
+.PP
+.nf
 	char *example(void)
 	{
 		return "This is a string";
 	}
+.fi
 .DE
 .PP
 the pointer returned by

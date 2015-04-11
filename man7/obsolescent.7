@@ -9,6 +9,8 @@ but that may be withdrawn from future editions of the Standard.
 For example, consider the practice of first defining a function and then
 following the definition with a list of parameter declarations:
 .DM
+.PP
+.nf
 	int example(parm1, parm2, parm3)
 	long parm1;
 	char *parm2;
@@ -16,15 +18,19 @@ following the definition with a list of parameter declarations:
 	{
 		. . .
 	}
+.fi
 .DE
 .PP
 The Standard regards this as obsolete, and may eventually withdraw
 recognition of it in favor of the following syntax:
 .DM
+.PP
+.nf
 	int example(long parm1, char *parm2, int parm3)
 	{
 		. . .
 	}
+.fi
 .DE
 .PP
 The Standard regards three features of the language as being obsolete.
