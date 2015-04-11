@@ -13,14 +13,12 @@ The storage-class specifier
 declares that
 .I identifier
 is to be accessed as quickly as possible.
-.if \nX<4 \*(PN will keep it in a machine register, if one is available.
-.if \nX=4 \{\
 In many computing environments, this indicates that
 .I identifier
 should be kept in a machine register.
 The translator, however, is not required to do this.
 It is a \fIhint\fR by the programmer to the translator, in the hope
-of obtaining more efficient code. \}
+of obtaining more efficient code. 
 .PP
 It is not permissible to take the address of an object declared with the
 .B register
