@@ -1,0 +1,34 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "const" "C keyword" "(Language/declarations/type qualifier)" "C keyword"
+.XR "type qualifier, not modifiable"
+.XR "not modifiable, type qualifier"
+.PC "Qualify an identifier as not modifiable"
+.PP
+The type qualifier
+.B const
+marks an object as being unmodifiable.
+An object declared as being
+.B const
+cannot be used on the left side of an assignment, or have its value
+modified in any way.
+Because of these restrictions, an implementation may place
+objects declared to be
+.B const
+into a read-only region of storage.
+.PP
+Judicious use of
+.B const
+allows the translator to optimize more thoroughly, for it does
+not have to include code to check whether the object has been modified.
+.PP
+Most of the prototypes for library functions use
+.B const
+to mark identifiers that are not modified by the function.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.3
+\*(KR, p. 40
+.SH "See Also"
+.B
+type qualifier, volatile
+.R

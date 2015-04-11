@@ -1,0 +1,21 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "static" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
+.XR "internal linkage"
+.XR "linkage, internal"
+.PC "Internal linkage"
+\fBstatic\fI type identifier\fR
+.PP
+The storage-class specifier
+.B static
+declares that
+.I identifier
+has internal linkage.
+This specifier may not be used to declare a function that has block scope.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.1
+\*(KR, p. 83
+.SH "See Also"
+.B
+linkage, storage-class identifiers
+.R

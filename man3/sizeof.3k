@@ -1,0 +1,96 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "sizeof" "C keyword" "(Language/expressions/unary operators)" "C keyword"
+.PC
+.PP
+The operator
+.B sizeof
+yields the size of its argument, in bytes.
+Its argument can be the name of a type, an array, a function,
+a structure, or an expression that yields an object.
+.PP
+When the name of a type is used as the operand to
+.BR sizeof ,
+it must be enclosed within parentheses.
+If any of the types
+.BR char ,
+.BR "signed char" ,
+or
+.B "unsigned char"
+are used as the argument to
+.BR sizeof ,
+the result by definition is always one.
+When any complete type is used (i.e., a type whose size is known by
+the translator), the result is the size of that type, in bytes.
+For example,
+.DM
+	sizeof (long double);
+.DE
+.PP
+returns the size of a
+.B "long double"
+in bytes.
+.PP
+If
+.B sizeof
+is given the name of an array, it returns the size of the array.
+For example, the code
+.DM
+	int example[5];
+	   . . . /* example[] is filled with some things */
+	sizeof example[] / sizeof int;
+.DE
+.PP
+yields the number of members in
+.BR example[] .
+.PP
+When
+.B sizeof
+is given the name of a structure or a
+.BR union ,
+it returns the size of that object, including padding used to align
+the objects within the structure, if any.
+This is especially useful when allocating memory for a linked list;
+for example:
+.DM
+	struct example {
+		int member1;
+		example *member2;
+	};
+	struct example *variable;
+	variable=(struct example *)malloc(sizeof(struct example));
+.DE
+.PP
+If
+.B sizeof
+is used to measure either a function or an array that has been passed as
+an argument to a function, it returns the size of a
+.I pointer
+to the appropriate object.
+This is because when an array name or function name
+is passed as an argument to a function, it is converted to a pointer.
+See
+.B "function definition"
+for more information.
+.PP
+.B sizeof
+always returns an object of type
+.BR size_t ;
+this type is defined in the header
+.BR stddef.h .
+It is intended to be an unsigned integral type.
+.PP
+.B sizeof
+must not be used with a function, with an object whose type is incomplete,
+or a bit-field.
+.SH Example
+For an example of using this operator in a program, see
+.BR bsearch .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.3.3.4
+\*(KR, p. 204
+.SH "See Also"
+.B
+.if \nX<4 expressions, operators, size_t
+.if \nX=4 expressions, operators, size_t, unary operators
+.R

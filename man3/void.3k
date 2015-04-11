@@ -1,0 +1,161 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH void "C keyword" "(Language/lexical elements/identifiers/types)" "C keyword"
+.XR "pointer to void"
+.XR "void *"
+.XR "empty type"
+.PC "Empty type"
+.PP
+The term
+.B void
+indicates the empty type.
+The following sections describe the ways it is used.
+.SH "Function Type"
+.B void
+can be used in a function prototype or definition to indicate that a
+function returns no value.
+For example, the declaration
+.DM
+	void example();
+.DE
+.PP
+indicates that the function
+.B example
+returns nothing.
+It would be an error for
+.B example
+to attempt to return a value to a function that calls it,
+or for the calling function to use its value in an expression.
+.SH "Function Arguments"
+.B void
+can also be used in a function prototype or function declaration
+to indicate that a function has no arguments.
+For example, the declaration
+.DM
+	void example(void);
+.DE
+.PP
+indicates that the function
+.B example
+not only returns nothing, but it takes no arguments as well.
+The older practice of writing
+.B example()
+remains legal.
+But as before, it indicates merely that nothing is said
+about arguments.
+.SH "Void Expression"
+.B void
+can be used to indicate that the value of an expression is to be ignored.
+This is done by casting the expression to type
+.BR void .
+Prefacing an expression with the cast
+.B (void)
+throws away its value (i.e., casts it into the void), although the
+expression is evaluated for possible side-effects.
+.SH "void *"
+A
+.B "void *"
+(\*(QLpointer to void\*(QR) is a generic pointer.
+It is used in much the same way that
+.B "char *"
+(\*(QLpointer to \fBchar\fR\*(QR) was used in earlier descriptions of C.
+The new generic pointer type eliminates the earlier confusion
+between a pointer to \fBchar\fR (e.g., a string pointer)
+and a generic pointer.
+.PP
+Because by definition the
+.B void
+type includes no objects, a pointer to
+.B void
+may not be dereferenced.
+That is, you should not directly access the object to which it points
+by using the indirection operator \*(Ql*\*(Qr.
+In the code
+.DM
+	void *voidp;
+	   . . .
+	if (*voidp > 0)
+	   . . .
+.DE
+.PP
+the behavior of dereferencing the pointer to
+.B void
+is undefined.
+It may or may not generate an error; if it does not, the results
+may be unpredictable.
+.PP
+It is correct, however, to cast a pointer to
+.B void
+to a standard object pointer type and then dereference it.
+For example, the code
+.DM
+	void *voidp;
+	   . . .
+	if (*(char *)voidp > 0)
+	   . . .
+.DE
+.PP
+is permitted.
+.PP
+The Standard guarantees that a pointer to
+.B void
+may be converted to a pointer to any incomplete type or object type.
+It also guarantees that a pointer to any incomplete type or object type
+may be converted into a pointer to
+.BR void .
+Moreover, converting the result back to the original type results
+in a pointer equal to the original pointer.
+That is, conversion of any object pointer type to
+.B "void *"
+and back again does not change the representation of the pointer.
+However, if an object pointer is converted to
+.B "void *"
+and then converted to a pointer to a type whose alignment
+is stricter than that of the original type, behavior is undefined.
+.PP
+The Standard also guarantees that the pointer types
+.B "char *"
+and
+.B "void *"
+have the same representation.
+This prevents the Standard from breaking existing code for functions
+with generic-pointer arguments
+(previously defined using type
+.B "char *"
+but now defined with type
+.BR "void *" ).
+.PP
+The introduction of the generic pointer
+.B "void *"
+by the Standard serves several purposes in addition to those noted above.
+The Standard no longer allows comparison between pointers of different
+types, except that any object pointer may be compared to a
+.BR "void *" .
+Casting object pointers with the expression
+.DM
+	(void *)
+.DE
+.PP
+allows comparisons that would otherwise be illegal.
+Library functions that have commonly been written with pointers of
+various types as arguments (such as
+.BR fread )
+can be defined with a prototype
+.B "void *"
+argument, which allows the arguments to be quietly
+converted to the correct type.
+.PP
+The generic pointer
+.B "void *"
+is also used as the type of the value
+returned by some functions (e.g., \fBmalloc\fR),
+to indicate that the returned value is a pointer to something
+of indeterminate type.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.1.2.5, \*(PS3.2.2.2-3, \*(PS3.3.4, \*(PS3.5.2, \*(PS3.5.3.1, \*(PS3.5.4.3
+\*(KR, pp. 199, 218
+.SH "See Also"
+.B
+.if \nX<4 NULL, pointer, precedence, types
+.if \nX=4 incomplete type, NULL, pointer, precedence, types
+.R

@@ -1,0 +1,29 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH break "C keyword" "(Language/statements/jump statements)" "C keyword"
+.XR "loop, exit unconditionally"
+.XR "switch, exit unconditionally"
+.XR "exit unconditionally from loop or switch"
+.PC "Exit unconditionally from loop or switch"
+.B break;
+.PP
+.B break
+is a statement that causes the program to exit immediately
+from the smallest enclosing
+.BR switch ,
+.BR while ,
+.BR for ,
+or
+.B do
+statement.
+.SH Example
+For an example of this statement, see
+.BR printf .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.6.3
+\*(KR, p. 64
+.SH "See Also"
+.B
+.if \nX<4 C keywords, continue, goto, statements, return
+.if \nX=4 C keywords, continue, goto, jump statements, return
+.R

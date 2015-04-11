@@ -1,0 +1,69 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH for "C keyword" "(Language/statements/iteration statements)" "C keyword"
+.XR "loop construct"
+.PC "Loop construct"
+\fBfor(\fIinitialization\^\fB; \fIcondition\^\fB; \fImodification\^\fB) \fIstatement\fR
+.PP
+.B for
+introduces a conditional loop.
+It takes three expressions as arguments;
+these are separated by semicolons \*(Ql;\*(Qr.
+.I initialization
+is executed before the loop begins.
+.I condition
+describes the condition that must be true for the loop to execute.
+.I modification
+is the statement that modifies
+.I variable
+to control the number of iterations of the loop.
+For example,
+.DM
+	for (i=0; i<10; i++)
+.DE
+.PP
+first sets the variable
+.B i
+to zero; then declares that the loop will continue as long as
+.B i
+remains less than ten;
+and finally, increments
+.B i
+by one after every iteration of the loop.
+This ensures that the loop will iterate exactly ten times (from
+.B i==0
+through
+.BR i==9 ).
+The statement
+.DM
+	for(;;)
+.DE
+.PP
+will loop until its execution is interrupted by a
+.BR break ,
+.BR goto ,
+or
+.B return
+statement.
+.PP
+The
+.B for
+statement is equivalent to:
+.DM
+	\fIinitialization\^\fP;
+	while(\fIcondition\^\fP) {
+		\fIstatement\fP
+		\fImodification\^\fP;
+	}
+.DE
+.SH Example
+For an example of this statement, see
+.BR putc .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.5.3
+\*(KR, pp. 60\fIff\fR
+.SH "See Also"
+.B
+.if \nX<4 break, C keywords, continue, do, statements, while
+.if \nX=4 break, C keywords, continue, do, iteration statements, while
+.R

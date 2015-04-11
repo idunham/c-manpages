@@ -1,0 +1,39 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "volatile" "C keyword" "(Language/declarations/type qualifier)" "C keyword"
+.PC "Qualify an identifier as frequently changing"
+.PP
+The type qualifier
+.B volatile
+marks an identifier as being frequently changed, either by
+other portions of the program, by the hardware, by other programs in the
+execution environment, or by any combination of these.
+This alerts the translator to re-fetch the given
+identifier whenever it encounters an expression that
+includes the identifier.
+In addition, an object marked as
+.B volatile
+must be stored at the point where an assignment to this object takes place.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.3
+\*(KR, p. 211
+.SH "See Also"
+.B
+const, type qualifier
+.R
+.SH Notes
+.B volatile
+was created by the Committee for systems' programs that deal
+with memory-mapped I/O or ports where the program is not the only task
+that may modify the given port in memory.
+.B volatile
+tells the translator that it does not know everything that is happening
+to the object.
+.PP
+Another use for
+.B volatile
+is for translators that perform optimizations, such as deferring storage of
+registers or peephole optimization.
+.B volatile
+requires that the object be read and stored at exactly those points
+where the program has specified these actions.

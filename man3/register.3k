@@ -1,0 +1,46 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "register" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
+.XR "quick access required"
+.XR "access, quick, required"
+.XR "identifier requires quick access"
+.PC "Quick access required"
+\fBregister\fI type identifier\fR
+.PP
+The storage-class specifier
+.B register
+declares that
+.I identifier
+is to be accessed as quickly as possible.
+.if \nX<4 \*(PN will keep it in a machine register, if one is available.
+.if \nX=4 \{\
+In many computing environments, this indicates that
+.I identifier
+should be kept in a machine register.
+The translator, however, is not required to do this.
+It is a \fIhint\fR by the programmer to the translator, in the hope
+of obtaining more efficient code. \}
+.PP
+It is not permissible to take the address of an object declared with the
+.B register
+designator, regardless of whether the implementation stores such an
+object in a machine register or not.
+.SH Example
+For an example of using this specifier in a program, see
+.BR srand .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.1
+\*(KR, p. 83
+.SH "See Also"
+.B
+storage-class identifiers
+.R
+.SH Notes
+An implementation must document how it handles variables declared to be
+.BR register .
+Practice currently ranges from ignoring register declarations
+completely,
+to allowing a few register declarations for objects
+of an appropriate type (typically integer or pointer),
+to ignoring the designator and implementing a full global
+register allocation scheme.

@@ -1,0 +1,40 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "long int" Type "(Language/lexical elements/identifiers/types)" Type
+.XR long
+.XR "signed long"
+.XR "signed long int"
+.PC
+.PP
+A
+.B "long int"
+is a signed integral type.
+This type can be no closer to zero than an
+.BR int .
+.PP
+A
+.B "long int"
+can encode any number between
+.B LONG_MIN
+and
+.BR LONG_MAX .
+These are macros that are defined in the header
+.BR limits.h .
+.if \nX<4 They are, respectively,
+.if \nX=4 They must, respectively, be at least
+\-2,147,483,647 and 2,147,483,647.
+.PP
+The types
+.BR long ,
+.BR "signed long" ,
+and
+.B "signed long int"
+are synonyms for
+.BR "long int" .
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.5, \*(PS3.2.1.1, \*(PS3.5.2
+\*(KR, p. 211
+.SH "See Also"
+.B
+int, short int, types
+.R

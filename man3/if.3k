@@ -1,0 +1,68 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH if "C keyword" "(Language/statements/selection statements)" "C keyword"
+.XR "conditionally execute expression"
+.XR "expression, conditionally execute"
+.PC "Conditionally execute an expression"
+\fBif(\fIconditional\^\fB) \fIstatement\^\fB;\fR
+.PP
+.B if
+is a C keyword that conditionally executes an expression.
+If
+.I conditional
+is nonzero, then
+.I statement
+is executed.
+However, if
+.I conditional
+is zero, then
+.I statement
+is not executed.
+.PP
+.I conditional
+must use a scalar type.
+It may be a function call (in which case
+.B if
+evaluates what function returns),
+an integer, the result of an arithmetic operation, or
+the value returned by a relational expression.
+.PP
+An
+.B if
+statement can be followed by an
+.B else
+statement, which also introduces a statement.
+If
+.I conditional
+is nonzero,
+then the statement introduced by
+.B if
+is executed and the one introduced by
+.B else
+is ignored; whereas if
+.I conditional
+is equal to zero, then the statement introduced by
+.B if
+is ignored and the one introduced by
+.B else
+is executed.
+.SH Example
+For an example of this statement, see
+.BR exit .
+.SH Cross-references
+.nf
+\*(AS, \*(PS4.6.4.1
+\*(KR, pp. 55\fIff\fR
+.SH "See Also"
+.B
+.if \nX<4 else, statements, switch
+.if \nX=4 else, selection statements, switch
+.R
+.SH Notes
+If the statement controlled by an
+.B if
+statement is accessed via a label, the statement
+controlled by an
+.B else
+statement associated with the
+.B if
+statement is not executed.

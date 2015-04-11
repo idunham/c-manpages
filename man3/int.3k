@@ -1,0 +1,57 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "int" "C keyword" "(Language/lexical elements/identifiers/types)" "C keyword"
+.XR signed
+.XR "signed int"
+.PC
+.PP
+The type
+.B "int"
+holds an integer.
+It is usually the same size as a word (or register) on the target machine.
+.PP
+.B int
+is a signed integral type.
+This type can be no smaller than an
+.B short
+and no greater than a
+.BR long .
+.PP
+A
+.B "int"
+can encode any number between
+.B INT_MIN
+and
+.BR INT_MAX .
+These are macros that are defined in the header
+.BR limits.h ;
+.if \nX>4 the former is equal to -32,767 and the latter to +32,767.
+.if \nX=4 the former can be no greater than -32,767 and the latter no less than +32,767.
+.PP
+The types
+.B signed
+and
+.B "signed int"
+are synonyms for
+.BR "int" .
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.5, \*(PS3.2.1.1, \*(PS3.5.2
+\*(KR, p. 211
+.SH "See Also"
+.B
+types
+.R
+.SH Notes
+Because
+.BR int s
+may be the size of
+.BR short s
+on some machines and the size of
+.BR long s
+on others, programs that are meant to be portable can avoid bugs
+by explicitly declaring all
+.BR int s
+to be either
+.B short
+or
+.BR long .

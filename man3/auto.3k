@@ -1,0 +1,20 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "auto" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
+.XR "automatic storage duration"
+.XR "storage duration, automatic"
+.PC "Automatic storage duration"
+\fBauto\fI type identifier\fR
+.PP
+The storage-class specifier
+.B auto
+declares that
+.I identifier
+has automatic storage duration.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.1
+\*(KR, p. 210
+.SH "See Also"
+.B
+storage-class specifiers, storage duration
+.R

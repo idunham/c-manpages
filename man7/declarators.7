@@ -1,0 +1,108 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "declarators" Overview "(Language/declarations)" Overview
+.PC
+.PP
+A
+.I declarator
+consists of an object being declared plus its 
+array, pointer, and function modifiers.
+.if \nX=4 \{\
+The syntax is as follows;
+.I opt
+indicates
+.IR optional :
+.DS
+.I
+	declarator:
+		pointer\dopt\u direct-declarator
+.DE
+.DS
+.I
+	direct-declarator:
+		identifier
+		\fL( \fIdeclarator \fL)\fI
+		direct-declarator \fL[\fI constant-expression \dopt\u \fL]\fI
+		direct-declarator \fL(\fI parameter-type-list \fL)\fI
+		direct-declarator \fL(\fI identifier-list\dopt\u \fL)\fI
+.DE
+.DS
+.I
+	pointer:
+		\fL*\fI type-qualifier-list\dopt\u
+		\fL*\fI type-qualifier-list\dopt\u pointer
+.DE
+.DS
+.I
+	type-qualifier-list:
+		type-qualifier
+		type-qualifier-list type-qualifier
+.DE
+.DS
+.I
+	parameter-type-list:
+		parameter-list
+		parameter list ,  . . .
+.DE
+.DS
+.I
+	parameter-list:
+		parameter-declaration
+		parameter-list , parameter-declaration
+.DE
+.DS
+.I
+	parameter-declaration:
+		declaration-specifiers declarator
+		declaration-specifiers abstract-declarator\dopt\u
+.DE
+.DS
+.I
+	identifier-list
+		identifier
+		identifier-list , identifier
+.DE \}
+.PP	
+For example,
+.DM
+	int arrayname[10];
+.DE
+.PP
+declares an array.
+.DM
+	int functionname( int arg1, int arg2, char *arg3 );
+.DE
+.PP
+declares a function.
+.DM
+	int *pointername;
+.DE
+.PP
+declares a pointer.
+.PP
+An implementation must be able to support at least 12 levels of
+declarators.
+Most implementations had given a lower limit.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.4
+\*(KR, pp. 215\fIff\fR
+.SH "See Also"
+.B
+array declarators, declarations, function declarators, pointer declarators
+.R
+.SH Notes
+To clarify some terminology that may be confusing:
+.PP
+A
+.I declaration
+encompasses the object declared, plus its specifiers, qualifiers,
+and levels of declarators.
+.PP
+A
+.I declarator
+consists of the object declared, plus its levels of specifiers
+(which set array dimensions, functions, or pointers).
+.PP
+A
+.I definition
+is a declaration that allocates storage.

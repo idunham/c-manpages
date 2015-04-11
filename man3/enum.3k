@@ -1,0 +1,123 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH enum "C keyword" "(Language/declarations/type definitions)" "C keyword"
+.XR "data type, enumerated"
+.XR "enumerated data type"
+.PC "Enumerated data type"
+\fBenum \fIidentifier \fB{ \fIenumerations \fB}\fR
+.PP
+An
+.B enum
+is a data type whose possible values are limited to a
+set of constants.
+.if \nX=4 \{\
+Its syntax is as follows;
+.I opt
+indicates
+.IR optional :
+.DS
+.I
+	enum-specifier:
+		\fLenum \fIidentifier\dopt\u \fL{\fI enumerator-list \fL}\fI
+		\fLenum \fIidentifier
+.DE
+.DS
+.I
+	enumerator-list:
+		enumerator
+		enumeratorlist , enumerator
+.DE
+.DS
+.I
+	enumerator:
+		enumeration-constant
+		enumeration-constant \fL=\fI constant-expression
+.DE \}
+.PP
+For example,
+.DM
+	enum opinion { yes, no, maybe };
+.DE
+.PP
+declares type
+.B opinion
+to have one of three constant values; these are identified by
+the members
+.BR yes ,
+.BR no ,
+and
+.BR maybe .
+.PP
+The translator assigns values to the identifiers from left to right,
+beginning with zero and increasing by one for each successive term.
+In the above example, the values of
+.BR yes ,
+.BR no ,
+and
+.B maybe
+are set, respectively, to zero, one, and two.
+Thus, the following example
+.DM
+	enum opinion guess;
+	   . . .
+	guess = no;
+.DE
+.PP
+sets the value of
+.B guess
+to one.
+.PP
+All enumerated identifiers must be distinct
+from all other identifiers in the program.
+The identifiers act as constants and are used
+wherever constants are appropriate.
+.PP
+If a member of an enumeration
+is followed by an equal sign and an integer,
+the identifier is assigned the given value
+and subsequent values increase by one from that value.
+For example,
+.DM
+	enum opinion {yes, no=50, maybe};
+.DE
+.PP
+sets the values of the members
+.BR yes ,
+.BR no ,
+and
+.B maybe
+to zero, 50, and 51, respectively.
+More than one enumerator can have the same value.
+For example:
+.DM
+	enum opinion {yes, no=50, nah=50, nope=50, maybe};
+.DE
+.PP
+assigns duplicate values to the members
+.BR no ,
+.BR nah ,
+and
+.BR nope .
+.PP
+An enumeration constant always has type
+.BR int .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.2.2
+\*(KR, p. 39
+.SH "See Also"
+.B
+.if \nX<4 type specifier
+.if \nX=4 type definitions
+.R
+.SH Notes
+Prior to the introduction of enumerated data types in C,
+programmers would create lists of manifest constants whose
+values took the values that enumerated constants now take.
+.PP
+Unlike more strongly typed languages, in which enumerated
+constants are checked to ensure that they are part of the
+specified set of values,
+.BR enum s
+in C are only required to be of type
+.BR int .
+No additional checking is performed on enumeration constants.

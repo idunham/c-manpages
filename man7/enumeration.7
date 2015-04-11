@@ -1,0 +1,32 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "enumeration constant" Definition "(Language/lexical elements/constants)" Definition
+.PC
+.PP
+An
+.I "enumeration constant"
+is a member of an enumeration.
+.if \nX=4 \{\
+Its syntax is as follows:
+.DM
+	enumeration-constant:
+		identifier
+.DE
+.PP \}
+This constant has type
+.BR int .
+.PP
+For example, in the enumeration
+.DM
+	enum example { blue, green, yellow };
+.DE
+.PP
+.B blue
+is an enumeration constant.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.1.3.3
+\*(KR, pp. 39, 194
+.SH "See Also"
+.B
+constants, enum
+.R

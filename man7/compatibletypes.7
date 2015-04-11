@@ -1,0 +1,50 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "compatible types" Definition "(Language/declarations/type definitions)" Definition
+.PC
+.PP
+To judge whether two types are compatible, several factors must be considered.
+.RS
+.IP "\fIScalar types\fR"
+.br
+First, the base types must be identical.
+Second, all specifiers must match, except for signedness (i.e., it does not
+matter whether either or both are signed or unsigned).
+Third, all type qualifiers must match.
+There are special semantics to determine whether
+qualified objects are compatible to ensure that qualified types
+are not \*(QLhidden\*(QR.
+See the entry
+.B "type qualifiers"
+for more information.
+.IP "\fIStructures\fR"
+.br
+For two structures to be compatible, they must have the same
+\*(QLtagged type\*(QR.
+For example, the structures
+.ID
+	FILE struct1;
+	FILE struct2;
+.IE
+are compatible, because the tagged type of each is
+.BR FILE .
+On the other hand, in the following code
+.ID
+	struct s1 { int s1_i } s1;
+	struct s2 { int s2_i } s2;
+.IE
+the structures
+.B s1
+and
+.B s2
+are not compatible.
+.IP "\fIPointers\fR"
+.br
+For two pointers to be compatible, they must point to the same type of object.
+Other pointers may be compatible if they are suitably cast.
+.SH Cross-reference
+\*(AS, \*(PS3.1.2.6, \*(PS3.5.2-4
+.SH "See Also"
+.B
+.if \nX<4 type specifier, types
+.if \nX=4 type definitions, types
+.R

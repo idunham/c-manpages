@@ -1,0 +1,243 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "float" "C keyword" "(Language/lexical elements/identifiers/types)" "C keyword"
+.PC
+.PP
+A
+.B "float"
+is a data type that represents a single-precision floating-point number.
+It is defined as being no larger than a
+.BR "double" .
+.PP
+Like all floating-point numbers, a
+.B "float"
+consists of one sign bit, which indicates
+whether the number is positive or negative; bits that encode
+the number's \fIexponent\fR; and bits that encode the number's
+\fImantissa\fR, or the number upon which the exponent works.
+The exponent often uses a
+.IR bias .
+This is a value that is subtracted from the exponent to yield the
+power of two by which the mantissa will be increased.
+The format of a
+.B "float"
+and the range of values that it can encode are set in the following
+macros, all of which are defined in the header
+.BR limits.h :
+.RS
+.IP \fBFLT_DIG\fR
+.br
+This holds the number of decimal digits of precision.
+This must be at least ten.
+.IP \fBFLT_EPSILON\fR
+.br
+Where
+.I b
+indicates the base of the exponent (default, two) and
+.I p
+indicates the precision (or number of base \fIb\fR digits in the mantissa),
+this macro holds the minimum positive floating-point number
+.I x
+such that 1.0 + \fIx\fR does not equal 1.0, \fIb\fR^1-\fIp\fR.
+This must be at least 1E-5.
+.IP \fBFLT_MAX\fR
+.br
+This holds the maximum representable floating-point number.
+It must be at least 1E+37.
+.IP \fBFLT_MAX_EXP\fR
+.br
+This is the maximum integer such that the value of
+.B FLT_RADIX
+raised to its power minus one
+is a representable finite floating-point number.
+.IP \fBFLT_MAX_10_EXP\fR
+.br
+This holds the maximum integer such that ten raised to its power is within
+the range of representable finite floating-point numbers.
+It must be at least +37.
+.IP \fBFLT_MANT_DIG\fR
+.br
+This gives the number of digits in the mantissa.
+.IP \fBFLT_MIN\fR
+.br
+This gives the minimum value encodable within a
+.BR "float" .
+This must be at least 1E-37.
+.IP \fBFLT_MIN_EXP\fR
+.br
+This gives the minimum negative integer such that when the value of
+.B FLT_RADIX
+is raised to that power minus one is a normalized floating-point number.
+.IP \fBFLT_MIN_10_EXP\fR
+.br
+This gives the minimum negative integer such that ten raised to that power
+is within the range of normalized floating-point numbers.
+.if \nX<4 \{\
+.PP
+Several formats are used to encode
+.BR float s,
+including
+IEEE, DECVAX, and BCD (binary coded decimal).
+\*(PN uses
+.if \nX=0 IEEE format throughout.
+.if \nX=1 IEEE format throughout.
+.if \nX=2 DECVAX format throughout.
+.if \nX=3 IEEE format throughout.
+.PP
+The following describes DECVAX, IEEE, and BCD formats, for your information.
+.SH "DECVAX Format"
+.XR "DECVAX format"
+The 32 bits in a
+.B float
+consist of one sign bit, an eight-bit
+exponent, and a 24-bit mantissa, as follows:
+.DM			
+Sign  Exponent 1    Mantissa
+|s   eeeeeee|e   fffffff|ffffffff|ffffffff|
+   Byte 4      Byte 3     Byte 2   Byte 1
+.DE
+.PP
+The exponent has a bias of 129.
+.PP
+If the sign bit is set to one, the number is negative; if it is set to
+zero, then the number is positive.
+If the number is all zeroes, then it equals zero.
+An exponent and mantissa of zero plus a sign of one (\*(QLnegative zero\*(QR)
+is by definition not a number.
+All other forms are numeric values.
+.PP
+The most significant bit in the mantissa is always set to one
+and is not stored.
+It is usually called the \*(QLhidden bit\*(QR.
+.PP
+The format for
+.BR double s
+simply adds another 32 mantissa bits to the end of the
+.B float
+representation, as follows:
+.DM			
+Sign  Exponent        Mantissa
+|s    eeeeeee|e  fffffff|ffffffff|ffffffff|
+   Byte 8      Byte 7     Byte 6   Byte 5
+.sp \n(pDu
+	ffffffff|ffffffff|ffffffff|ffffffff|
+	 Byte 4   Byte 3   Byte 2   Byte 1
+.DE
+.SH "IEEE Format"
+.XR "IEEE format"
+The IEEE encoding of a
+.B float
+is the same as that in the DECVAX format.
+Note, however, that the exponent has a bias of 127, rather than 129.
+.PP
+Unlike the DECVAX format,
+IEEE format assigns special values to several floating point numbers.
+In the following description, a
+.I tiny
+exponent is one that is all zeroes, and a
+.I huge
+exponent is one that is all ones:
+.RS
+.IP \*(bu 0.3i
+A tiny exponent with a mantissa of zero
+equals zero, regardless of the setting of the sign bit.
+.IP \*(bu
+A huge exponent with a mantissa of zero
+equals infinity, regardless of the setting of the sign bit.
+.IP \*(bu
+A tiny exponent with a mantissa greater than zero
+is a denormalized number, i.e.,
+a number that is less than the least normalized number.
+.IP \*(bu
+A huge exponent with a mantissa
+greater than zero is, by definition, not a number.
+These values can be used to handle special conditions.
+.RE
+.PP
+An IEEE
+.BR double ,
+unlike DECVAX format, increases the number of exponent bits.
+It consists of a sign bit, an 11-bit exponent, and a 53-bit mantissa,
+as follows:
+.DM			
+Sign     Exponent          Mantissa
+|s    eeeeeee|eeee  ffff|ffffffff|ffffffff|
+  Byte 8        Byte 7    Byte 6   Byte 5  
+.sp \n(pDu
+	ffffffff|ffffffff|ffffffff|ffffffff|
+	 Byte 4   Byte 3   Byte 2   Byte 1
+.DE
+.PP
+The exponent has a bias of 1,023.
+The rules of encoding are the same as for
+.BR float s.
+.SH "BCD Format"
+.XR "BCD format"
+The BCD (\*(QLbinary coded decimal\*(QR) format is used
+in accounting to eliminate rounding errors
+that alter the worth of an account by a fraction of a cent.
+For that reason, BCD format consists of a sign,
+an exponent, and
+a chain of four-bit numbers, each of which is defined to hold the
+digits zero through nine.
+.PP
+A BCD
+.B float
+has a sign bit, seven bits of exponent, and six four-bit digits,
+as follows:
+.DM
+Sign Exponent    Mantissa
+ |s    eeeeeee|   dddd  dddd|dddd dddd|dddd dddd|
+     Byte 4        Byte 3      Byte 2    Byte 1    
+.DE
+.PP
+A BCD
+.B double
+has a sign bit, 11 bits of exponent, and 13 four-bit digits, as
+follows:
+.DM
+Sign    Exponent      Mantissa
+|s    eeeeeee|eeee  dddd|dddd dddd|dddd dddd|
+    Byte 8      Byte 7     Byte 6    Byte 5  
+.sp \n(pDu
+	dddd dddd|dddd dddd|dddd dddd|dddd dddd|
+	  Byte 4    Byte 3    Byte 2    Byte 1
+.DE
+.PP
+Passing the hexadecimal numbers A through F in a digit
+yields unpredictable results.
+.PP
+The following rules apply when handling BCD numbers:
+.RS
+.IP \*(bu 0.3i
+A tiny exponent with a mantissa of zero equals zero.
+.IP \*(bu
+A tiny exponent with a mantissa of non-zero indicates a denormalized
+number.
+.IP \*(bu
+A huge exponent with a mantissa of zero indicates infinity.
+.IP \*(bu
+A huge exponent with a mantissa of non-zero is, by
+definition, not a number; these non-numbers are used to indicate
+errors.
+.RE \}
+.SH Example
+For an example of a program that uses
+.BR float ,
+see
+.BR sin .
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.4, \*(PS3.1.3.1, \*(PS3.5.2
+\*(KR, p. 211
+.SH "See Also"
+.B
+double, float.h, long double, types
+.R
+.if \nX<4 \{\
+.SH Notes
+Because the \fBprintf\fR routines that print floating-point numbers
+are quite large, they are included only optionally.
+If you wish to have \fBprintf\fR print \fBfloat\fRs or \fBdouble\fRs,
+you must compile your program with the \fB\-f\fR option to the \fBcc\fR
+command.
+See \fBcc\fR for more details. \}

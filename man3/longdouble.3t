@@ -1,0 +1,96 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "long double" Type "(Language/lexical elements/identifiers/types)" Type
+.PC
+.PP
+A
+.B "long double"
+is a data type that represents at least a
+double-precision floating-point number.
+It is defined as being at least as large as a
+.BR double .
+In some environments,
+extra precision can be gained by representing values with it.
+.PP
+Like all floating-point numbers, a
+.B "long double"
+consists of one sign bit, which indicates
+whether the number is positive or negative; bits that encode
+the number's \fIexponent\fR; and bits that encode the number's
+\fImantissa\fR, or the number upon which the exponent works.
+The exponent often uses a
+.IR bias .
+This is a value that is subtracted from the exponent to yield the
+power of two by which the fraction will be increased.
+The structure of a
+.B "long double"
+and the range of values that it can encode are set in the following
+macros, all of which are defined in the header
+.BR limits.h :
+.RS
+.IP \fBLDBL_DIG\fR
+.br
+This holds the number of decimal digits of precision.
+This must be at least ten.
+.IP \fBLDBL_EPSILON\fR
+.br
+Where
+.I b
+indicates the base of the exponent (default, two) and
+.I p
+indicates the precision (or number of base \fIb\fR digits in the mantissa),
+this macro holds the minimum positive floating-point number
+.I x
+such that 1.0 + \fIx\fR does not equal 1.0, \fIb\fR^1-\fIp\fR.
+This must be at least 1E-9.
+.IP \fBLDBL_MAX\fR
+.br
+This holds the maximum representable floating-point number.
+It must be at least 1E+37.
+.IP \fBLDBL_MAX_EXP\fR
+.br
+This is the maximum integer such that the base raised to its power minus one
+is a representable finite floating-point number.
+No value is given for this macro.
+.IP \fBLDBL_MAX_10_EXP\fR
+.br
+This holds the maximum integer such that ten raised to its power is within
+the range of representable finite floating-point numbers.
+It must be at least +37.
+.IP \fBLDBL_MANT_DIG\fR
+.br
+This gives the number of digits in the mantissa.
+No value is given for this macro.
+.IP \fBLDBL_MIN\fR
+.br
+This gives the minimum value encodable within a
+.BR "long double" .
+This must be at least 1E-37.
+.IP \fBLDBL_MIN_EXP\fR
+.br
+This gives the minimum negative integer such that when the base is raised
+to that power minus one is a normalized floating-point number.
+No value is given for this macro.
+.IP \fBLDBL_MIN_10_EXP\fR
+.br
+This gives the minimum negative integer such that ten raised to that power
+is within the range of normalized floating-point numbers.
+.PP
+A
+.B "long double"
+constant is represented by the suffix
+.B l
+or
+.B L
+on a floating-point constant.
+.if \nX<4 \{\
+.PP
+For information about common floating-point formats, see
+.BR float . \}
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.4, \*(PS3.1.3.1, \*(PS3.5.2
+\*(KR, p. 196
+.SH "See Also"
+.B
+double, float, types
+.R

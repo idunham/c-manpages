@@ -1,0 +1,66 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "alias" "Definition" "(Definitions)" Definitions
+.PC
+.PP
+An
+.I alias
+for an object is alternative way to access that object.
+.PP
+Because C uses pointers, it can be impossible for the translator
+to keep track of all possible aliases for an object.
+Often, the translator must use \*(QLworst-case aliasing assumptions\*(QR
+when memory is read.
+These assumption are explained below.
+.PP
+The Standard refers to aliasing in the section on expressions
+(3.3).
+It allows the translator to assume that the only way
+to reference a given object is by an object of the same type,
+a pointer to an object of that type, or by a character pointer.
+Type qualifiers and sign do not count in this situation.
+The reason a character pointer is assumed to
+point to any type of object is one of historical practice.
+.PP
+By making use of this information concerning types,
+a translator is said to make more favorable aliasing assumptions,
+and produce better code.
+For example, consider the following code fragment:
+.DM
+	fn(int *ip, float *fp)
+	{
+		int i;
+		float f;
+.DE
+.DM
+		ip = &i;	/* line 1 */
+		*fp = f;	/* line 2 */
+	}
+.DE
+.PP
+Normally in an assignment to a dereferenced pointer (line 2),
+the translator must assume that such a statement can overwrite
+the values of all global variables and the values of all local variables
+that have had their addresses taken.
+.PP
+Because
+.B fp
+is a pointer to
+.BR float ,
+the assignment to
+.B *fp
+need not invalidate the value of
+.BR i .
+The translator must assume only that the current values of other
+.BR float s
+may have been changed.
+.PP
+Any attempt to trick the translator, such as with a statement of the form
+.DM
+	*fp = (float) i;
+.DE
+.PP
+generates undefined behavior.
+.SH "See Also"
+.B
+Definitions, type qualifier
+.R

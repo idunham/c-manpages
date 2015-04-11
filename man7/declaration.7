@@ -1,0 +1,73 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH declarations Overview "(Language)" Overview
+.PC
+.PP
+A
+.I declaration
+gives the type, storage class, linkage, and scope
+of a given identifier.
+.if \nX=4 \{\
+Its syntax is as follows; note that
+.I opt
+indicates
+.IR optional :
+.DS
+.I
+	declaration:
+		declaration-specifiers init-declarator-list\dopt\u :
+.DE
+.DS
+.I
+	declaration-specifiers:
+		storage-class-specifier declaration-specifiers\dopt\u
+		type-specifier declaration-specifiers\dopt\u
+		type-qualifier declaration-specifiers\dopt\u
+.DE
+.DS
+.I
+	init-declarator-list:
+		init-declarator
+		init-declarator-list , init-declarator
+.DE
+.DS
+.I
+	init-declarator:
+		declarator
+		declarator \fL=\fI initializer
+.DE \}
+.PP
+If a declaration also causes storage to be allocated for the object declared,
+then it is called a
+.IR definition .
+.PP
+Declarators may be within a list, separated by commas.
+Each declarator has the type given at the beginning of the list,
+although a declarator may also have additional type information.
+For example,
+.DM
+	int example1, *example2;
+.DE
+.PP
+declares two variables:
+.B example1
+has type
+.BR int ,
+whereas
+.B example2
+has type \*(QLpointer to
+.BR int .\*(QR
+.PP
+Objects may be initialized when they are declared.
+See
+.B initialization
+for more information.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5
+\*(KR, pp. 210\fIff\fR
+.SH "See Also"
+.B
+bit-fields, declarators, definition,
+initialization, Language, linkage, scope, storage-class specifiers,
+type qualifiers, type specifiers
+.R

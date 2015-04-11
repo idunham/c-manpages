@@ -1,0 +1,81 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "typedef" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
+.XR "type, synonym"
+.XR "synonym for another type"
+.PC "Synonym for another type"
+.PP
+The storage-class specifier
+.B typedef
+names a synonym for a type.
+.if \nX=4 \{\
+Its syntax is as follows:
+.DS
+.I
+	typedef-name:
+		identifier
+.DE \}
+.PP
+The new synonym must include all qualifiers and storage-class specifiers.
+For example, the declaration
+.DM
+	typedef volatile unsigned long int giant;
+.DE
+.PP
+states that the type
+.B giant
+is a synonym for
+.BR "volatile unsigned long int" .
+Thus, the declaration
+.DM
+	giant example();
+.DE
+.PP
+declares, in effect, that the function
+.B example
+returns an
+.BR "volatile unsigned long int" .
+An object declared to be type
+.B giant
+and one declared to be type
+.B "volatile unsigned long int"
+behave exactly the same.
+.PP
+.B typedef
+is often used to declare a structure type.
+For example, the structure declaration
+.DM
+	typedef struct {
+		int member1, member2;
+		long member3;
+	} EXAMPLE;
+.DE
+.PP
+declares that
+.B EXAMPLE
+is a type name, and that it is a synonym for the structure that precedes it.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.6
+\*(KR, p. 146
+.SH "See Also"
+.B
+.if \nX<4 storage-class specifiers, types
+.if \nX=4 storage-class specifiers, type names, types
+.R
+.SH Notes
+The term
+.I typedef
+also describes a type that is defined in a
+.B typedef
+statement.
+.PP
+The Standard does not allow benign redeclarations of
+typedefs.
+For example, if the declaration
+.DM
+	typedef int SINT;
+.DE
+.PP
+were included in a header and the same declaration appeared in a
+source file that included this header,
+a diagnostic message should appear during translation.

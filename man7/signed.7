@@ -1,0 +1,58 @@
+.\" ENVIRONMENTS:  COHERENT, LC, TOS, ISIS, ANSI
+.TH signed Definition "(Language/lexical elements/identifiers/types)" Definition
+.PC
+.PP
+The modifier
+.B signed
+indicates that a data type can contain both positive and negative values.
+In some representations,
+the sign of a signed object is indicated by a bit set aside
+for the purpose.
+For this reason, a signed object can encode an
+absolute value only half that of its unsigned counterpart.
+.PP
+The four integral data types can be marked as signed:
+.BR char ,
+.BR "short int" ,
+.BR int ,
+and
+.BR "long int" .
+.PP
+The implementation defines whether a
+.B char
+is signed or unsigned by default.
+The Standard describes the types
+.B "signed char"
+and
+.BR "unsigned char" .
+These let the programmer use the type of
+.B char
+other than that supplied by the implementation.
+.BR "short int" ,
+.BR int ,
+and
+.B "long int"
+are signed by default.
+The declarations
+.BR "signed short int" ,
+.BR "signed int" ,
+and
+.B "signed long int"
+were created for the sake of symmetry.
+.PP
+For information about converting one type of integer to another, see
+.BR "integral types" .
+.PP
+If
+.B signed
+is used by itself, it is a synonym for
+.BR int .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.1.2.5, \*(PS3.2.1.2
+\*(KR, p. 211
+.SH "See Also"
+.B
+.if \nX<4 types, unsigned
+.if \nX=4 integral type, types, unsigned
+.R

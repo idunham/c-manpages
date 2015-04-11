@@ -1,0 +1,34 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "byte" Definition "(Definitions)" Definition
+.XR "low-order bit"
+.XR "high-order bit"
+.PC
+.PP
+A
+.I byte
+is a contiguous set of at least eight bits.
+It is the unit of storage that is large enough to hold each character
+within the basic C character set.
+It is also the smallest unit of storage that a C program can address.
+.PP
+The least significant bit is called the
+.IR "low-order bit" ,
+and the most significant bit is the
+.IR "high-order bit" .
+.PP
+In terms of C programming,
+a byte is synonymous with the data type
+.BR char :
+a
+.B char
+is defined to be equal to
+one byte's worth of storage.
+The macro
+.B CHAR_BIT
+gives the number of bits in a byte for the execution environment.
+.SH Cross-reference
+\*(AS, \*(PS1.6
+.SH "See Also"
+.B
+bit, char, Definitions
+.R

@@ -1,0 +1,27 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "unsigned long int" Type "(Language/lexical elements/identifiers/types)" Type
+.PC
+.PP
+An
+.B "unsigned long int"
+is an unsigned integral type.
+It requires the same amount of storage as a
+.BR "long int" ,
+and has the same alignment requirements.
+.PP
+An
+.B "unsigned long int"
+has the minimum value of zero, and a maximum value
+.BR ULONG_MAX .
+The last is a macro that is defined in the header
+.BR limits.h .
+.if \nX<4 It is 4,294,967,295.
+.if \nX=4 It must be at least 4,294,967,295.
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.5, \*(PS3.2.1.1, \*(PS3.5.2
+\*(KR, p. 211
+.SH "See Also"
+.B
+long int, types, unsigned
+.R

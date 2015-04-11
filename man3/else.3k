@@ -1,0 +1,72 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH else "C keyword" "(Language/statements/selection statements)" "C keyword"
+.XR "conditionally execute statement"
+.XR "statement, conditionally execute"
+.PC "Conditionally execute a statement"
+\fBelse \fIstatement\^\fB;\fR
+.PP
+.B else
+is the flip side of
+.BR if :
+if the condition described in the
+.B if
+statement equals zero, then the statement introduced by
+.B else
+is executed.
+If, however, the condition described in the
+.B if
+statement is nonzero, then the
+statement it introduces is executed and the statement introduced by
+.B else
+is ignored.
+.PP
+An
+.B else
+statement is associated with the first preceding \fBelse\fR-less \fBif\fR
+statement that is within the same block, but not within an enclosed block.
+For example,
+.DM
+	if(\fIconditional1\^\fP) {
+		if(\fIconditional2\^\fP)
+			\fIstatement1\fP
+	} else
+		\fIstatement2\fP
+.DE
+.PP
+the
+.B else
+is associated with the
+.B if
+statement that uses
+.IR conditional1 ,
+not the one that uses
+.IR conditional2 .
+On the other hand, in the code
+.DM
+	if(\fIconditional1\^\fP)
+		if(\fIconditional2\^\fP)
+			\fIstatement1\fP
+	else
+		\fIstatement2\fP
+.DE
+.PP
+which does not use braces, the
+.B else
+is associated with the
+.B if
+statement that uses
+.IR conditional2 ,
+not the one that uses
+.IR conditional1 .
+.SH Example
+For an example of this statement, see
+.BR exit .
+.SH Cross-references
+.nf
+\*(AS, \*(PS4.6.4.1
+\*(KR, pp. 55\fIff\fR
+.SH "See Also"
+.B
+.if \nX<4 if, statements, switch
+.if \nX=4 if, selection statements, switch
+.R

@@ -1,0 +1,56 @@
+.\" ENVIRONMENTS:  COHERENT, LC, TOS, ISIS, ANSI
+.TH "compliance" Definition "(Definitions)" Definition
+.XR "strictly conforming program"
+.XR "conforming implementation"
+.XR "conforming freestanding implementation"
+.XR "conforming hosted implementation"
+.XR "conforming program"
+.PC
+.PP
+.I Compliance
+refers to the degree to which a program and an implementation conform
+to the Standard's descriptions of the C language.
+.PP
+A
+.I "strictly conforming program"
+is one that uses only the features of the language and the library
+routines that are described within the Standard.
+It does not produce any behavior that is implementation defined,
+unspecified, or undefined.
+It does not exceed any minimum maximum set by the Standard.
+A strictly conforming program should be maximally portable to any
+environment for which a conforming implementation exists.
+.PP
+A
+.I "conforming program"
+is any program that can be translated by a conforming implementation.
+It may use library functions other than those described in the
+Standard, it may evoke non-Standard behavior, and it may use extensions
+to the language that are recognized by the implementation.
+.PP
+There are two varieties of
+.IR "conforming implementation" :
+.I "conforming hosted implementation"
+and
+.IR "conforming freestanding implementation" .
+A conforming hosted implementation is one that can translate any strictly
+conforming program.
+A conforming freestanding implementation is one that can translate any strictly
+conforming program whose use of macros and functions is restricted
+to those defined in the headers
+.BR float.h ,
+.BR limits.h ,
+.BR stdarg.h ,
+and
+.BR stddef.h .
+.if \nX=4 \{\
+.PP
+Every implementation must be accompanied by a document that describes all
+implementation-defined behavior, locale-specific behavior,
+and extensions to the language. \}
+.SH Cross-reference
+\*(AS, \*(PS1.7
+.SH "See Also"
+.B
+behavior, Definitions, limits
+.R

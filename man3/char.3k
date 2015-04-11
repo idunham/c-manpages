@@ -1,0 +1,64 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH char "C keyword" "(Language/lexical elements/identifiers/types)" "C keyword"
+.PC
+.PP
+The data type
+.B char
+is the smallest addressable unit of data.
+It consists of one byte of storage, and it can encode all of the characters
+that can be used to write a C program.
+\fBsizeof(char)\fR returns one by definition, with all
+other data types defined as multiples thereof.
+.PP
+A
+.B char
+may be either signed or unsigned; this is up to the implementation.
+.if \nX<4 \*(PN uses a signed \fBchar\fR by default.
+If a
+.B char
+holds any of the characters that make up the C character set,
+then it is positive.
+ANSI C allows the corresponding types
+.B "signed char"
+and
+.BR "unsigned char" .
+Programmers can create signed and unsigned versions of
+.B char
+where needed.
+.PP
+The range of values that can be encoded within a
+.B char
+are set by the macros
+.B CHAR_MIN
+and
+.BR CHAR_MAX .
+These are defined in the header
+.BR limits.h .
+The minimum values of these macros depend upon whether the implementation
+sign-extends a
+.B char
+when it is used in an expression.
+If the implementation does sign extend, then
+.B CHAR_MIN
+is equal to
+.B SCHAR_MIN
+(at least -127) and
+.B CHAR_MAX
+is equal to
+.B SCHAR_MAX
+(at least +127).
+If it does not sign extend, however,
+.B CHAR_MIN
+is equal to zero and
+.B CHAR_MAX
+is equal to
+.B UCHAR_MAX
+(at least +255).
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.1.2.5
+\*(KR, p. 211
+.SH "See Also"
+.B
+signed char, types, unsigned char
+.R

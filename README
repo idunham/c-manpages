@@ -1,0 +1,18 @@
+C Manpages
+
+This contains a set of manpages for C keywords, types, and useful topics,
+originally extracted from the Coherent documentation[1].
+Since Coherent has been released under a license similar to the 3-clause
+BSD license, they are Free and Open Source (see LICENSE for the text).
+
+The original documentation appears to cover ANSI C89, which is more
+restricted than ISO C99/C11 or the GCC dialects. For example, declaring
+a variable inside a for statement:
+  for(int i=0; i < 5; i++)
+is not permitted by C89, but only by newer dialects.
+Similarly, the "long long" type was not yet available.
+But despite that, you may find this to be helpful.
+
+
+[1] http://www.nesssoftware.com/home/mwc/source.php 
+

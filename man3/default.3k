@@ -1,0 +1,38 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH default "C keyword" "(Language/statements/labelled statements)" "C keyword"
+.XR "switch, default entry in"
+.XR "default entry in switch table"
+.PC "Default entry in switch table"
+.PP
+.B default
+is a label that marks the default entry in the body of a
+.B switch
+statement.
+If none of the
+.B case
+labels match the value of the
+.B switch
+statement's conditional expression,
+then the
+.B switch
+statement jumps to the point marked by the
+.B default
+label, and begins execution from there.
+.SH Example
+For an example of this label, see
+.BR printf .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.1
+\*(KR, p. 58
+.SH "See Also"
+.B
+.if \nX<4 C keywords, case, statements, switch
+.if \nX=4 C keywords, case, labelled statements, switch
+.R
+.SH Notes
+A
+.B switch
+statement is not required to include a
+.B default
+label, but it is good programming practice to include one.

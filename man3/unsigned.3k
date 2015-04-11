@@ -1,0 +1,66 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "unsigned" "C keyword" "(Language/lexical elements/identifiers/type)" "C keyword"
+.XR "sign bit"
+.PC
+.PP
+When a declaration includes the modifier
+.BR unsigned ,
+it indicates that the type can hold only a non-negative value.
+.PP
+There are four
+.B "unsigned"
+data types:
+.BR "unsigned char" ,
+.BR "unsigned int" ,
+.BR "unsigned long int" ,
+and
+.BR "unsigned short int" .
+If the modifier
+.B unsigned
+is not used, the translator assumes that
+.BR int ,
+.BR "long int" ,
+and
+.B "short int"
+are signed.
+The implementation defines whether
+.B char
+is signed or unsigned by default.
+.PP
+An unsigned data type takes the same amount of storage as the
+corresponding signed type, and has the same alignment requirements.
+.PP
+Any value that can be represented by both a signed and an unsigned
+type will be represented the same way in both.
+An unsigned type, however, cannot represent
+a negative value.
+.if \nX<4 The sign
+.if \nX=4 \{\
+If the implementation uses a \*(QLsign bit\*(QR to
+indicate the sign of a number, that \}
+bit is freed to hold a value.
+In this instance,
+an unsigned type can store a value of twice what can be stored in
+its signed counterpart.
+.PP
+Arithmetic that involves unsigned types will never overflow.
+If an arithmetic operation produces a value that is too large to fit into
+a particular unsigned type, that value is divided by one plus the largest
+value that can be held in that unsigned type, and the remainder is then
+stored in the unsigned type.
+.PP
+For information about converting one type of integer to another, see
+.BR "integral types" .
+.PP
+When
+.B unsigned
+is used by itself, it is regarded as a synonym for
+.BR "unsigned int" .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.1.2.5
+\*(KR, p. 211
+.SH "See Also"
+.B
+char, signed, types, unsigned
+.R

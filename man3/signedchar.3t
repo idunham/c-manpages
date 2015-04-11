@@ -1,0 +1,30 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "signed char" Type "(Language/lexical elements/identifiers/types)" Type
+.PC
+.PP
+A
+.B "signed char"
+is a type that has the same size and the same alignment requirements as a plain
+.BR char .
+The Standard created this type for implementations whose
+.B char
+type is unsigned by default.
+.PP
+A
+.B "signed char"
+can encode values from
+.B SCHAR_MIN
+to
+.BR SCHAR_MAX .
+These are macros that are defined in the header
+.BR limits.h .
+.if \nX<4 The former is set to \-127, and the latter to +127.
+.if \nX=4 The former must be set to at most \-127, and the latter to at least +127.
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.5, \*(PS3.5.2
+\*(KR, p. 44
+.SH "See Also"
+.B
+char, types, unsigned char
+.R

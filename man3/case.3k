@@ -1,0 +1,52 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH case "C keyword" "(Language/statements/labelled statements)" "C keyword"
+.XR "switch, mark entry in table"
+.XR "mark entry in switch table"
+.PC "Mark entry in switch table"
+\fBcase \fIexpression\^\fB:\fR
+.PP
+.B case
+is a label that introduces an entry within the body of a
+.B switch
+statement.
+The value of the
+.B switch
+statement's conditional expression is compared with the value of every
+.B case
+label's expression.
+When the two match, then the program jumps to the
+point marked by that
+.B case
+label and execution continues from there.
+Execution continues until a
+.B break
+statement is encountered.
+.PP
+Each
+.B case
+label must mark an expression whose value differs from those of every other
+.B case
+label for that
+.B switch
+statement.
+See
+.B switch
+for more information.
+.SH Example
+For an example, see
+.BR printf .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.1
+\*(KR, p. 58
+.SH "See Also"
+.B
+.if \nX<4 break, C keywords, default, statements, switch
+.if \nX=4 break, C keywords, default, labelled statements, switch
+.R
+.SH Notes
+Every conforming implementation must be able to accept at least 257
+.B case
+labels within a
+.B switch
+statement.

@@ -1,0 +1,40 @@
+.\" ENVIRONMENTS:  ANSI
+.TH "composite types" Definition "(Language/lexical elements/identifiers/types)"
+.PC
+.PP
+A
+.I "composite type"
+is any type that is constructed from two or more declarations.
+Each subsequent declaration of a composite type adds more information
+to it.
+.PP
+Composite types are constructed in only a few instances.
+One is when an incomplete array type is declared, followed by a later
+declaration that allocates storage for the array:
+.DM
+	int array[];
+	   . . .
+	int array[] = { 3, 6, 9 };
+.DE
+.PP
+Here, the composite type is an array type with three elements.
+.PP
+Another instance is when an old-style function declarator is followed by a
+prototype-style function declaration:
+.DM
+	long newfunction();
+	long newfunction(int, long, char *);
+.DE
+.PP
+The resulting composite type is the function declaration plus the list of
+prototype parameters.
+Hence, all calls to
+.B newfunction
+that are within the scope of this prototype declaration
+will be checked against this prototype.
+.SH Cross-reference
+\*(AS, \*(PS3.1.2.5
+.SH "See Also"
+.B
+types
+.R

@@ -1,0 +1,52 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "defined" "C keyword" "(Language/preprocessing/macro replacement)" "C keyword"
+.PC "Check if identifier is defined"
+\fBdefined( \fIidentifier \fB)\fR
+\fBdefined \fIidentifier\fR
+.PP
+The Standard describes a new C keyword,
+.BR defined .
+This keyword is used to check if
+.I identifier
+has been defined as
+.if \nX<4 macro or manifest constant.
+.if \nX=4 macro.
+The preprocessing directives
+.DM
+	#if defined(identifier)
+.DE
+.PP
+and
+.DM
+	#if defined identifier
+.DE
+.PP
+have exactly the same effect as the directive:
+.DM
+	#ifdef identifier
+.DE
+.PP
+The
+.B defined
+operator is permitted only within
+.B #if
+and
+.B #elif
+expressions.
+It may not be used in any other context.
+.PP
+.B defined
+is not a reserved word.
+It can be used in more complex conditional statements, i.e.:
+.DM
+	#if LEVEL==3 && defined FOO
+.DE
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.8.1
+\*(KR, p. 91
+.SH "See Also"
+.B
+.if \nX<4 #if, #ifdef, keywords, preprocessing
+.if \nX=4 #if, #ifdef, keywords, macro replacement
+.R

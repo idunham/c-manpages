@@ -1,0 +1,53 @@
+.\" ENVIRONMENTS:  COHERENT, LC, TOS, ISIS, ANSI
+.TH while "C keyword" "(Language/statements/iteration statements)" "C keyword"
+.XR "loop construct"
+.PC "Loop construct"
+\fBwhile(\fIcondition\^\fB) \fIstatement\fR
+.PP
+.B while
+introduces a conditional loop.
+Unlike a
+.B do
+loop, a
+.B while
+loop tests
+.I condition
+before execution of
+.IR statement .
+The loop ends when
+.I condition
+is no longer satisfied.
+Hence, the loop may not execute at all, if
+.I condition
+is initially false.
+.PP
+For example,
+.DM
+	while (variable < 10)
+.DE
+.PP
+introduces a loop whose statements will continue to execute until
+.B variable
+is equivalent to ten or greater.
+The statement
+.DM
+	while (1)
+.DE
+.PP
+will loop until interrupted by
+.BR break ,
+.BR goto ,
+or
+.BR return .
+.SH Example
+For an example of this statement, see
+.BR sscanf .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.5.1
+\*(KR, pp. 60\fIff\fR
+.SH "See Also"
+.B
+.if \nX<4 C keywords, do, for, statements, while
+.if \nX=4 C keywords, do, for, iteration statements, while
+.R

@@ -1,0 +1,82 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "trigraph sequences" Definition "(Environment/environmental considerations)" Definition
+.XR "ISO 646"
+.XR ??=
+.XR ??(
+.XR ??/	
+.XR ??)
+.XR ??'
+.XR ??<
+.XR ??!
+.XR ??>
+.XR ??-
+.PC
+.PP
+A
+.I "trigraph sequence"
+is a set of three characters that represents one character in the
+C character set.
+The set of trigraph sequences was created to allow users to use
+the full range of C characters, even if their keyboards
+do not implement the full C character set.
+Trigraph sequences are also useful with input devices
+that reserve one or more members of the C character set for internal use.
+.PP
+Each trigraph sequence is introduced by two question marks.
+The third character in the sequence indicates which character is being
+represented.
+The following table gives the set of trigraph sequences:
+.DM
+.ta 1.0iC 2.0iC
+	\fITrigraph	Character\fP
+	\fISequence	Represented\fP
+.sp 4p
+	??=	#
+	??(	[
+	??/	\e
+	??)	]
+	??'	^
+	??<	{
+	??!	|
+	??>	}
+	??-	~
+.DE
+.PP
+The characters represented are the ones used in the
+C character set but not included in the ISO 646 character set.
+ISO 646 describes an invariant sub-set of the ASCII character set.
+.PP
+Trigraph sequences are interpreted even if they occur within a string
+literal or a character constant.
+This is because they are interpreted before the source code is
+tokenized; see
+.B "translation phases"
+for more information.
+Thus, strings that uses a literal \*(QL??\*(QR will not work the
+same as under a non-ANSI implementation of C.
+For example, the function call
+.DM
+	printf("Feel lucky, punk??!\en");
+.DE
+.PP
+would print:
+.DM
+	Feel lucky, punk|
+.DE
+.PP
+This is a silent change that may break existing code.
+.PP
+To print a pair of questions marks, use the escape sequence \*(Ql\e?\e?\*(Qr.
+For example:
+.DM
+	printf("Feel lucky, punk\e?\e?!\en");
+.DE
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.1.1
+\*(KR, p. 229
+.SH "See Also"
+.B
+.if \nX<4 Environment
+.if \nX=4 environmental considerations
+.R

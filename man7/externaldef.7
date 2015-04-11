@@ -1,0 +1,48 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "external definitions" Overview "(Language)" Overview
+.PC 
+.PP
+A
+.I definition
+is a declaration that reserves storage for the thing declared.
+An
+.I "external definition"
+is a definition whose identifier is defined outside of any function.
+This makes the object available throughout the file or the
+program, depending upon whether it has, respectively, internal or
+external linkage.
+.PP
+.if \nX=4 \{\
+The syntax of an external definition is as follows:
+.DM
+.I
+	translation-unit:
+		external-declaration
+		translation-unit external-declaration
+.DE
+.DM
+.I
+	external-declaration:
+		function-definition
+		declaration
+.DE
+.PP \}
+If an identifier has external linkage and is used in an expression
+(except as an operand to the
+.B sizeof
+operator), then an external definition must exist for that identifier
+somewhere in the program.
+.PP
+There are two varieties of external definition:
+.B "function definitions"
+and
+.BR "object definitions" .
+See the appropriate entries for more information.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.7
+\*(KR, p. 226
+.SH "See Also"
+.B
+declaration, definition, function definition, linkage, object definition
+.R

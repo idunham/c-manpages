@@ -1,0 +1,89 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH return "C keyword" "(Language/statements/jump statements)" "C keyword"
+.XR "value, return"
+.XR "function, return to"
+.XR "return to calling function"
+.XR "implicit declaration, problems"
+.PC "Return to calling function"
+\fBreturn;\fR
+\fBreturn \fIexpression\^\fB;\fR
+.PP
+.B return
+is a statement that forces a function to return immediately
+to the function that called it.
+.PP
+.B return
+may also evaluate
+.I expression
+and pass its value to the calling function; the
+calling function regards this value as the value of the called function.
+.PP
+.B return
+can return a value to the calling function
+only if the called function was \fInot\fR
+declared to have a return type of \fBvoid\fR.
+The calling function is, of course, free to ignore the value
+.B return
+hands it.
+.PP
+If the called function is declared to return a type other than what
+.B return
+is actually returning, the value passed by
+.B return
+will be altered to conform to what the function was declared to return.
+For example,
+.DM
+	main(void)
+	{
+		printf("%s\en", example());
+	}
+.DE
+.DM
+	char *example(void)
+	{
+		return "This is a string";
+	}
+.DE
+.PP
+the pointer returned by
+.B example
+will be changed to an
+.B int
+before being returned to
+.BR main .
+This is because
+.B example
+is declared implicitly within
+.BR main ,
+and a function that is declared implicitly is assumed to return an
+.BR int .
+In environments where an
+.B int
+and a pointer are the same length, this code will work correctly.
+However, it will fail in environments where an
+.B int
+and a pointer have different lengths.
+.PP
+A function may have any number of
+.B return
+statements within it; however, a function can
+.B return
+only one value to the function that called it.
+.PP
+Reaching the last \*(Ql}\*(Qr in a function is equivalent to calling
+.B return
+without an expression.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.6.4
+\*(KR, p. 70
+.SH "See Also"
+.B
+.if \nX<4 break, C keywords, continue, goto, statements
+.if \nX=4 break, C keywords, continue, goto, jump statements
+.R
+.SH Notes
+If a program uses what is returned by a function as a value,
+and that function uses
+.B return
+without an expression, the behavior of the program is undefined.

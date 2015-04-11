@@ -1,0 +1,44 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "obsolescent" Definition "(Definitions)" Definition
+.PC
+.PP
+The term
+.I obsolescent
+refers to any feature of the C language that is widely used,
+but that may be withdrawn from future editions of the Standard.
+For example, consider the practice of first defining a function and then
+following the definition with a list of parameter declarations:
+.DM
+	int example(parm1, parm2, parm3)
+	long parm1;
+	char *parm2;
+	int parm3;
+	{
+		. . .
+	}
+.DE
+.PP
+The Standard regards this as obsolete, and may eventually withdraw
+recognition of it in favor of the following syntax:
+.DM
+	int example(long parm1, char *parm2, int parm3)
+	{
+		. . .
+	}
+.DE
+.PP
+The Standard regards three features of the language as being obsolete.
+The first is the use of separate lists of parameters identifiers and
+declaration lists, as described above.
+The second is the use of function declarators with empty parentheses;
+if a function takes no arguments, the word \fBvoid\fR should appear
+between the parentheses.
+The third is the placing of storage-class specifier at any point other
+than at the beginning of the declaration specifiers.
+.SH Cross-reference
+.nf
+\*(AS, \*(PS1.8, \*(PS3.9
+.SH "See Also"
+.B
+Definitions, function declarators, storage-class specifiers
+.R

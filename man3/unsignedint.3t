@@ -1,0 +1,32 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "unsigned int" Type "(Language/lexical elements/identifiers/types)" Type
+.PC
+.PP
+An
+.B "unsigned int"
+is an unsigned integral type.
+It requires the same amount of storage as a
+.B "int"
+and has the same alignment requirements.
+.PP
+An
+.B "unsigned int"
+has the minimum value of zero, and a maximum value of
+.BR UINT_MAX .
+The last is a macro that is defined in the header
+.BR limits.h .
+.if \nX<4 It is 65,535.
+.if \nX=4 It must be at least 65,535.
+.PP
+The type
+.B unsigned
+is a synonym for
+.BR "unsigned int" .
+.SH Cross-references
+.nf
+\*(AS, \*(PS2.2.4.2, \*(PS3.1.2.5, \*(PS3.2.1.1, \*(PS3.5.2
+\*(KR, p. 211
+.SH "See Also"
+.B
+int, types, unsigned
+.R

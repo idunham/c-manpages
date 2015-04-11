@@ -1,0 +1,20 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH "extern" "C keyword" "(Language/declarations/storage-class specifiers)" "C keyword"
+.XR "external linkage"
+.XR "linkage, external"
+.PC "External linkage"
+\fBextern\fI type identifier\fR
+.PP
+The storage-class specifier
+.B extern
+declares that
+.I identifier
+has external linkage.
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.5.1
+\*(KR, pp. 210, 211
+.SH "See Also"
+.B
+linkage, storage-class specifiers
+.R

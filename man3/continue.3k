@@ -1,0 +1,51 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH continue "C keyword" "(Language/statements/jump statements)" "C keyword"
+.XR "loop, force next iteration"
+.XR "force next iteration of loop"
+.PC "Force next iteration of a loop"
+.B continue;
+.PP
+.B continue
+forces the next iteration of a
+.BR for ,
+.BR while ,
+or
+.B do
+loop.
+It works only upon the smallest enclosing loop.
+.PP
+.B continue
+forces a loop to iterate by jumping to the end of the loop, which is
+where iteration evaluation is made.
+For example, the code
+.DM
+	while(\fIstatement\fP) {
+		   . . .
+		if (\fIstatement\fP)
+			continue;
+		   . . .
+	}
+.DE
+.PP
+is equivalent to:
+.DM
+	while(\fIstatement\fP) {
+		   . . .
+		if (\fIstatement\fP)
+			goto end;
+		   . . .
+		end: ;
+	}
+.DE
+.SH Example
+For an example of this statement, see
+.BR mktime .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.6.2
+\*(KR, p. 64
+.SH "See Also"
+.B
+.if \nX<4 break, C keywords, goto, return, statements
+.if \nX=4 break, C keywords, goto, jump statements, return
+.R

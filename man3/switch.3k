@@ -1,0 +1,140 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH switch "C keyword" "(Language/statements/selection statements)" "C keyword"
+.XR "table, select entry in"
+.XR "select entry in table"
+.PC "Select an entry in a table"
+\fBswitch ( \fIexpression \fB) \fIstatement\fR
+.PP
+.B switch
+evaluates
+.IR expression ,
+jumps to the
+.B case
+label whose
+expression is equal to
+.IR expression ,
+and continues execution from there.
+.I expression
+may evaluate to any integral type, not just an
+.BR int .
+Every
+.B case
+label's
+.I expression
+is cast to the type of
+.I conditional
+before it is compared with
+.IR expression .
+.PP
+If no
+.B case
+expression matches
+.IR expression ,
+.B switch
+jumps to the point marked by the
+.B default
+label.
+If there is no default label, then
+.B switch
+does not jump and no statement is executed;
+execution then continues from the \*(Ql}\*(Qr
+that marks the end of the
+.B switch
+statement.
+.PP
+The program continues its execution
+from the point to which
+.B switch
+jumps, either until a
+.BR break ,
+.BR continue ,
+.BR goto ,
+or
+.B return
+statement is read, or until the \*(Ql}\*(Qr that encloses all of the
+.B case
+statements is encountered.
+.PP
+All
+.B case
+labels are subordinate to the closest enclosing
+.B switch
+statement.
+No two
+.B case
+labels can have expressions with the same value.
+However, if a
+.B case
+label introduces a secondary
+.B switch
+statement, then that
+.B switch
+statement's suite of
+.B case
+labels may duplicate the values used by the
+.B case
+labels of the outer
+.B switch
+statement.
+.SH Example
+For an example of this statement, see
+.BR printf .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.6.4.2
+\*(KR, pp. 58\fIff\fR
+.SH "See Also"
+.B
+.if \nX<4 break, case, default, if, statements
+.if \nX=4 break, case, default, if, selection statements
+.R
+.SH Notes
+It is good programming practice always to use a
+.B default
+label with a
+.B switch
+statement.
+There may be only one
+.B default
+label with any
+.B switch
+statement.
+.PP
+The number of
+.B case
+labels that can be included with a
+.B switch
+statement may vary from implementation to implementation.
+The Standard requires that every conforming implementation
+allow a
+.B switch
+statement to have up to at least 257
+.B case
+labels.
+.PP
+The first edition of
+.I "The C Programming Language"
+requires that
+.I conditional
+may evaluate to an
+.BR int .
+The Standard lifts this requirement:
+.I conditional
+may now be any integral type, from
+.B short
+to
+.BR "unsigned long" .
+Every
+.I expression
+associated with a
+.B case
+label will be altered to conform to the type of
+.IR conditional .
+Therefore, if a program depends upon
+.I conditional
+or any
+.I expression
+being an
+.BR int ,
+it may work differently under a conforming translator.
+This is a quiet change that may break existing code.

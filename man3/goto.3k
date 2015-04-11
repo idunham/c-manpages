@@ -1,0 +1,50 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH goto "C keyword" "(Language/statements/jump statements)" "C keyword"
+.XR "jump, within a function"
+.XR "function, jump within"
+.XR "unconditionally jump within function"
+.PC "Unconditionally jump within a function"
+\fBgoto \fIlabel\^\fB;\fR
+.PP
+The
+.B goto
+statement forces a program's execution to jump to the point marked by
+.IR label .
+A
+.B goto
+can jump only to a point within the current function.
+To jump beyond a function boundary, use the functions
+.B longjmp
+and
+.BR setjmp .
+.PP
+The most common use for
+.B goto
+is to exit from nested control structures or go to the top of a control block.
+It is used most often to write \*(QLripcord\*(QR routines, i.e.,
+routines that are executed when a error occurs too deeply within
+a program for the program to disentangle itself correctly.
+.SH Example
+For an example of this statement, see
+.BR "name space" .
+.if \nX=2 \{\
+For an example of its use in a large program, see
+.BR window . \}
+.SH Cross-references
+.nf
+\*(AS, \*(PS4.6.6.1
+\*(KR, p. 65
+.SH "See Also"
+.B
+break, C keywords, continue,
+.if \nX=4 jump statements,
+label name, non-local jumps,
+.if \nX<4 return, statements
+.if \nX=4 return
+.R
+.SH Notes
+.I "The C Programming Language"
+describes
+.B goto
+as \*(QLinfinitely-abusable.\*(QR
+.IR "Caveat utilitor" .

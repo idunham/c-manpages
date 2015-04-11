@@ -1,0 +1,81 @@
+.\" ENVIRONMENTS: COHERENT, LC, TOS, ISIS, ANSI
+.TH struct "C keyword" "(Language/lexical elements/identifiers/types)" "C keyword"
+.XR structure
+.PC
+.PP
+The keyword
+.B struct
+introduces a
+.IR structure .
+This is an aggregate data type that consists of a number of fields, or
+.IR members ,
+each of which can have its own name and type.
+.PP
+The members of a structure are stored sequentially.
+Unlike the related type
+.BR union ,
+the elements of a
+.B struct
+do not overlap.
+Thus, the size of a
+.B struct
+is the total of the sizes of all of its members, plus any bytes used for
+alignment (if the implementation requires them).
+Aligning bytes may not be inserted at the beginning of a
+.BR struct ,
+but may appear in its middle, or at the end.
+For this reason, it is incorrect to assume that any two members of a
+structure abut each other in memory.
+.PP
+Any type may be used within a
+.BR struct ,
+including bit-fields.
+No incomplete type may be used; thus, a
+.B struct
+may not contain a copy of itself, but it may contain a pointer to itself.
+A
+.B struct
+is regarded as incomplete until its closing \*(Ql}\*(Qr is read.
+.PP
+The members of a
+.B struct
+are stored in the order in which they are declared.
+Thus, a pointer to a
+.B struct
+also points to the beginning of the \fBstruct\fR's first member.
+.PP
+The following is an example of a structure:
+.DM
+struct person {
+	char name[30];
+	char st_address[25];
+	char city[20];
+	char state[2];
+	char zip[9];
+	char id_number[9];
+} MYSELF;
+.DE
+.PP
+This example defines a structure type
+.BR person ,
+as well as an instance of this type, called
+.BR MYSELF .
+.SH Cross-references
+.nf
+\*(AS, \*(PS3.1.2.5, \*(PS3.5.2.1
+\*(KR, pp. 127\fIff\fR
+.SH "See Also"
+.B
+alignment, member name, tag, types, union
+.R
+.if \nX=4 \{\
+.SH Notes
+\*(PN permits structure assignment, the passing of 
+structures to functions,
+and returning structures from functions (as opposed to the
+passing or returning of \fBpointers\fR to structures).
+.PP
+Some C compilers transform structure arguments and structure
+returns into structure pointers.
+The use of structure assignment, structure arguments, or structure returns may
+create problems when porting the code to another C compiler. \}
